@@ -190,6 +190,12 @@ for i, row in ast_exp.iterrows():
     else:
         ast_exp.at[i, 'Grad/Mil'] = 'Both'
 
+ast_milcount = ast_data['Military Rank'].notna().value_counts()
+ast_gradcount = ast_data['Graduate Major'].notna().value_counts()
+
+print(ast_milcount)
+print(ast_gradcount)
+
 # We use ast_ext here as we are excluded selected astronauts that have never been on a mission (i.e. 0 flights)
 # The below groups astronauts into the four categories from above.
 group_exp_cols = ['Space Flights', 'Space Walks', 'Space Flight (hr)', 'Space Walks (hr)']

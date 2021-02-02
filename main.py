@@ -282,9 +282,7 @@ plt.show()
 
 fl_plot = sns.jointplot(x='Space Flights', y='Space Flight (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.7)
 sw_plot = sns.jointplot(x='Space Walks', y='Space Walks (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.7)
-
-#  ax1.set_title('Flight Experience', size=10)
-#  ax2.set_title('Spacewalk Experience', size=10)
+# change
 plt.show()
 
 

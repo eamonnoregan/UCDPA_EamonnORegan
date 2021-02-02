@@ -109,8 +109,8 @@ def grp_ages(df):
 
 
 def flt_exp(df):
-    fhr_mean = round(df['Space Flight (hr)'].median(), 2)
-    spw_mean = round(df['Space Walks (hr)'].median(), 2)
+    fhr_mean = round(df['Space Flight (hr)'].mean(), 2)
+    spw_mean = round(df['Space Walks (hr)'].mean(), 2)
     exp = (fhr_mean, spw_mean)
     return exp
 
@@ -279,10 +279,13 @@ for ax in fig2.axes:
     plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.5)
 
 plt.show()
-
-fl_plot = sns.jointplot(x='Space Flights', y='Space Flight (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.7)
-sw_plot = sns.jointplot(x='Space Walks', y='Space Walks (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.7)
-# change
+with sns.color_palette("tab10"):
+    fl_plot = sns.jointplot(x='Space Flights', y='Space Flight (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.9)
+    fl_plot.fig.suptitle("Space Flight (hrs) vs Space Flights for Astronaut Background", y=1)
+    fl_plot.fig.set_size_inches(5, 5)
+    sw_plot = sns.jointplot(x='Space Walks', y='Space Walks (hr)', data=ast_exp, hue='Grad/Mil', alpha=0.9)
+    sw_plot.fig.suptitle("Space Walk (hrs) vs Space Walks for Astronaut Background", y=1)
+    sw_plot.fig.set_size_inches(5, 5)
 plt.show()
 
 
@@ -311,5 +314,3 @@ with sns.axes_style("whitegrid"):
     g_state.set(xlim=(0, 30))
 
 plt.show()
-
-# ast_sort
